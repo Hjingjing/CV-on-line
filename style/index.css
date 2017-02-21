@@ -1,0 +1,50 @@
+/**
+ * Created by 上善 on 2017/2/20.
+ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 微软雅黑;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.bk-wrapper {
+    width: 854px;
+}
+
+.top {
+    height: 200px;
+    background-color: #2d4062;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size:14px;
+    color: #FFFFFF;
+}
+
+.top .name{
+    font-size: 32px;
+}
+
+.middle h3{
+    color: #aa7345;
+}
+
+.middle {
+    height: 800px;
+    background-color: #eae2d7;
+    display: flex;
+    justify-content: space-around;
+}
+
+.middle hr {
+    border: 2px solid #e3513a;
+}
