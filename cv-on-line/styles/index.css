@@ -1,0 +1,241 @@
+/*start 导入自定义字体*/
+@font-face {
+    font-family: "Raphaelicons";
+    src: url('../fonts/raphaelicons-webfont.eot') format('eot'),
+    url('../fonts/raphaelicons-webfont.svg') format('svg'),
+    url('../fonts/raphaelicons-webfont.ttf') format('ttf'),
+    url('../fonts/raphaelicons-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*end 导入自定义字体*/
+
+body {
+    font-family: "MicrosoftJhengHei", "Microsoft YaHei";
+    background-color: #dddddd;
+    font-weight: 400;
+    font-size: 15px;
+    color: #333333;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased; /*字体抗锯齿，一般用于英文*/
+}
+
+/*start 导航的制作*/
+a {
+    text-decoration: none;
+    color: #555555;
+}
+
+/*清除浮动类*/
+.clr {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+    padding: 0;
+    margin: 0;
+}
+
+/*end 清除浮动类*/
+
+.st-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+}
+
+.st-container > input,
+.st-container > a {
+    width: 20%;
+    height: 44px;
+    line-height: 44px;
+    position: fixed;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.st-container > input {
+    opacity: 0;
+    z-index: 1000;
+}
+
+.st-container > a {
+    z-index: 10;
+    font-weight: 700;
+    font-size: 22px;
+    background-color: #e23a6e;
+    text-align: center;
+    color: #ffffff;
+}
+
+#st-control-1, #st-control-1 + a {
+    left: 0;
+
+}
+
+#st-control-2, #st-control-2 + a {
+    left: 20%;
+
+}
+
+#st-control-3, #st-control-3 + a {
+    left: 40%;
+
+}
+
+#st-control-4, #st-control-4 + a {
+    left: 60%;
+
+}
+
+#st-control-5, #st-control-5 + a {
+    left: 80%;
+
+}
+
+.st-container input:checked + a,
+.st-container input:checked:hover + a {
+    background-color: #821134;
+
+}
+
+/*atart 每个导航上面的小三角,实际宽度为40px*/
+.st-container input:checked + a:after {
+    content: "";
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    border: 20px solid transparent;
+    border-bottom-color: #821134;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -20px;
+}
+
+/*end 每个导航上面的小三角,实际宽度为40px*/
+
+.st-container input:hover + a {
+    background-color: #AD244F;
+}
+
+/*end 导航的制作*/
+
+/*start 内容*/
+.st-scroll,
+.st-panel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+}
+
+/*改变st-scroll位置,显示内容*/
+.st-scroll {
+    left: 0;
+    top: 0;
+    -webkit-transform: translate3d(0, 0, 0); /*变换，移动端3d变换开启硬件加速*/
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden; /*当元素没有面向屏幕是不可见，其余section隐藏*/
+    -webkit-transition: all 0.6s ease-in-out; /*动画变换的时间 由快到慢*/
+    -moz-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+}
+
+.st-panel {
+    background-color: #ffffff;
+    overflow: hidden;
+
+}
+
+#st-control-1:checked ~ .st-scroll {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -o-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+#st-control-2:checked ~ .st-scroll {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+#st-control-3:checked ~ .st-scroll {
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    -o-transform: translateY(-200%);
+    -ms-transform: translateY(-200%);
+    transform: translateY(-200%);
+}
+
+#st-control-4:checked ~ .st-scroll {
+    -webkit-transform: translateY(-300%);
+    -moz-transform: translateY(-300%);
+    -o-transform: translateY(-300%);
+    -ms-transform: translateY(-300%);
+    transform: translateY(-300%);
+}
+
+#st-control-5:checked ~ .st-scroll {
+    -webkit-transform: translateY(-400%);
+    -moz-transform: translateY(-400%);
+    -o-transform: translateY(-400%);
+    -ms-transform: translateY(-400%);
+    transform: translateY(-400%);
+}
+
+/*start 矩形 旋转45度 上移一半实现三角形*/
+.st-desc {
+    width: 200px;
+    height: 200px;
+    background-color: #fa96b5;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -100px;
+    -webkit-transform: translateY(-50%) rotate(45deg);
+    -moz-transform: translateY(-50%) rotate(45deg);
+    -o-transform: translateY(-50%) rotate(45deg);
+    -ms-transform: translateY(-50%) rotate(45deg);
+
+}
+
+/*end 矩形 旋转45度 上移一半实现三角形*/
+
+/*属性选择器*/
+[data-icon]:after {
+    content: attr(data-icon);
+    width: 200px;
+    height: 200px;
+    /* background: #0f0; */
+    color: #fff;
+    font-size: 90px;
+    text-align: center;
+    line-height: 200px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -100px 0 0 -100px;
+    -webkit-transform: rotate(-45deg) translateY(25%);
+    -moz-transform: rotate(-45deg) translateY(25%);
+    -ms-transform: rotate(-45deg) translateY(25%);
+    -o-transform: rotate(-45deg) translateY(25%);
+    transform: rotate(-45deg) translateY(25%);
+    /*设置字体*/
+    font-family: "Raphaelicons";
+    text-shadow: 1px 1px 1px rgba(151,25,64,0.2);
+}
+
+
